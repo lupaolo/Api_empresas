@@ -8,6 +8,14 @@ const schema = new mongoose.Schema(
         },
         descricao: {
             type: String,
+            required: true
+        },
+        dataInicio: {
+            type: Date,
+            required: false
+        },
+        dataFim: {
+            type: Date,
             required: false
         }
     },
@@ -16,6 +24,6 @@ const schema = new mongoose.Schema(
     }
 )
 
-const Departamento = mongoose.model('departamento', schema)
+const Projeto = mongoose.model('projeto', schema)
 
-module.exports = Departamento
+module.exports = Projeto

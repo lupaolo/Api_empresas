@@ -1,43 +1,43 @@
-const Departamentos = require('../models/Departamentos')
+const Departamento = require('../models/Departamento')
 
 async function create(req, res) {
-    const novoDepartamento = new Departamentos(req.body)
-    const departamentoCriado = await novoDepartamento.save()
+    const departamento = new Departamento(req.body)
+    const departamentoCriado = await departamento.save()
     res.status(201).json(departamentoCriado)
 }
 
 async function getAll(req, res) {
-    res.json(await Departamentos.find())
+    res.json(await Departamento.find())
 }
 
 async function getById(req, res) {
-    const departamento = await Departamentos.findById(req.params.id)
+    const departamento = await Departamento.findById(req.params.id)
     if (departamento) {
         res.json(departamento)
     } else {
-        res.status(404).json({ mensagem: "Departamento não encontrado!" })
+        res.status(404).json({ mensagem: "Departamento não encontrato!" })
     }
 }
 
 async function update(req, res) {
-    const DepartamentoAtulizado = await Departamentos.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    if (DepartamentoAtulizado) {
-        res.json(DepartamentoAtulizado)
+    const departamentoAtualizado = await Departamento.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    if (departamentoAtualizado) {
+        res.json(departamentoAtualizado)
     } else {
-        res.status(404).json({ mensagem: "Departamento não encontrado!" })
+        res.status(404).json({ mensagem: "Departamento não encontrato!" })
     }
 
 }
 
 async function remove(req, res) {
-    const DepartamentoExcluido = await Departamentos.findByIdAndDelete(req.params.id)
-    if (DepartamentoExcluido) {
+    const departamentoExcluido = await Departamento.findByIdAndDelete(req.params.id)
+    if (departamentoExcluido) {
         res.json({
             mensagem: "Departamento excluido com sucesso!",
-            DepartamentoExcluido
+            departamentoExcluido
         })
     } else {
-        res.status(404).json({ mensagem: "Departamento não encontrado!" })
+        res.status(404).json({ mensagem: "Departamento não encontrato!" })
     }
 }
 
