@@ -15,7 +15,7 @@ async function getById(req, res) {
     if (cargo) {
         res.json(cargo)
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrato!" })
+        res.status(404).json({ mensagem: "Cargo não encontrado!" })
     }
 }
 
@@ -24,7 +24,7 @@ async function update(req, res) {
     if (cargoAtulizado) {
         res.json(cargoAtulizado)
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrato!" })
+        res.status(404).json({ mensagem: "Cargo não encontrado!" })
     }
 
 }
@@ -37,7 +37,7 @@ async function remove(req, res) {
             cargoExcluido
         })
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrato!" })
+        res.status(404).json({ mensagem: "Cargo não encontrado!" })
     }
 }
 
